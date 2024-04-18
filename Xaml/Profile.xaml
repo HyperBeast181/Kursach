@@ -1,0 +1,184 @@
+﻿<Window x:Class="WpfApp1.Xaml.Profile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfApp1.Xaml"
+        mc:Ignorable="d"
+        Title="ProfilePage" MinHeight="1050" MinWidth="1080" Background="#D2D9EB" Height="916" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Xaml/Logo2.png">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="10" Background="{DynamicResource MaterialDesignPaper}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#242339">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon 
+                x:Name="profileIcon" Kind="AccountCircle" 
+                Width="60" Height="100" 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="20 0 0 0"
+                Foreground="White"/>
+                    <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="28"
+                    Text="User"
+                    x:Name="txtRole"
+                Margin="10 0 0 0"
+                     TextAlignment="Center"
+
+                    Foreground="White"/>
+                </StackPanel>
+            </Grid>
+            <ScrollViewer Grid.Row="1">
+
+                <Grid Grid.Row="1" x:Name="profileInfoGrid">
+                    <StackPanel>
+                        <TextBox Margin="0 20 0 0" x:Name="txtUser" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Введите Логин" BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}" Cursor="Arrow" Text="User"/>
+                        <PasswordBox Margin="0 20 0 0" x:Name="txtPass" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Введите Пароль" BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}" Password="123"/>
+
+                        <TextBox Margin="0 20 0 0" x:Name="txtFirstname" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Имя" BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                        <TextBox Margin="0 20 0 0" x:Name="txtSurname" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Фамилия" BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                        <TextBox Margin="0 20 0 0" x:Name="txtPatronymic" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Отчество" BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                        <DatePicker x:Name="datepickerBirthday" 
+                        materialDesign:HintAssist.Hint="День Рождение
+                                    "
+                      VerticalAlignment="Center"
+                      Margin="10 25 10 0"
+                        Height="50"
+                      Width="300"/>
+                        <ComboBox Margin="0 20 0 0" x:Name="cmbGender" 
+                                  Height="50"
+                          Width="300"
+                                  BorderThickness="2"
+                                  FontSize="12"
+                                  materialDesign:HintAssist.Hint="Пол"
+                                  BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                  Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+
+                        <TextBox Margin="0 20 0 0" x:Name="txtEmail" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Email" BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}" Cursor="Arrow"/>
+                        <TextBox Margin="0 20 0 0" x:Name="txtPhone" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Телефон
+                                 " BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                        <TextBox Margin="0 20 0 0" x:Name="txtPassSeries" Width="300" FontSize="18"
+                     materialDesign:HintAssist.Hint="Серия и № паспорта 
+                                 " BorderThickness="2"
+                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                        <Button Margin="0 20 0 0" x:Name="saveBtn" Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                    Background="#242339"
+                    Height="55" Width="300" materialDesign:ButtonAssist.CornerRadius="10"
+                        VerticalAlignment="Bottom"
+                    FontSize="18" Content="Закрыть"
+                        
+                    Click="saveBtn_Click" Cursor="Hand"/>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="1" Margin="10" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="12*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#242339">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon 
+                x:Name="sortIcon" Kind="SortReverseVariant" 
+                Width="60" Height="100" 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="20 0 0 0"
+                Foreground="White"/>
+                    <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="28"
+                    Text="Ваши Билеты"
+                    x:Name="txtOrders"
+                Margin="10 0 0 0"
+                     TextAlignment="Center"
+
+                    Foreground="White"/>
+                </StackPanel>
+                <Button 
+                x:Name="checkAllClientsBtn" 
+                Visibility="Hidden"
+                Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                 Background="white" Foreground="#242339"
+                Height="45" Width="140" materialDesign:ButtonAssist.CornerRadius="10"
+                HorizontalAlignment="Right"
+                Margin="0 0 50 0"
+                        VerticalAlignment="Center"
+                    FontSize="18" Content="Check clients"
+                Click="checkAllClientsBtn_Click"
+                  Cursor="Hand"/>
+            </Grid>
+
+            <ListView Grid.Row="1" x:Name="LvTicketList" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  Style="{StaticResource MaterialDesignListView}" >
+                <Border BorderThickness="1" Height="100" Width="805" Background="White">
+                    <Label Content="Билет №1" Margin="37,29,499,29" FontSize="24" FontWeight="Bold"/>
+                </Border>
+                <Border BorderThickness="1" Height="100" Width="805" Background="White">
+                    <Label Content="Билет №2" Margin="36,27,498,28" FontSize="24" FontWeight="Bold"/>
+                </Border>
+                <Border BorderThickness="1" Height="100" Width="805" Background="White">
+                    <Label Content="Билет №3" Margin="36,30,495,28" FontSize="24" FontWeight="Bold"/>
+                </Border>
+
+
+
+
+
+            </ListView>
+
+        </Grid>
+
+        <Label Content="Ваш билет до Москвы был приобритён" Margin="229,129,360,875" Grid.Column="1" FontSize="14"/>
+        <Label Content="Стоимость 16 432 Р" Margin="229,159,360,848" Grid.Column="1"/>
+        <Button Grid.Column="1" Content="Посмотреть" HorizontalAlignment="Left" Margin="654,142,0,0" VerticalAlignment="Top" Width="138" Height="30" Click="Button_Click"/>
+        <Button Grid.Column="1" Content="Посмотреть" HorizontalAlignment="Left" Margin="654,258,0,0" VerticalAlignment="Top" Width="138" Height="30" Click="Button_Click_1"/>
+        <Label Content="Ваш билет до Москвы был приобритён" Margin="229,243,360,766" Grid.Column="1" FontSize="14"/>
+        <Label Content="Стоимость 16 432 Р" Margin="229,273,360,731" Grid.Column="1"/>
+        <Button Grid.Column="1" Content="Посмотреть" HorizontalAlignment="Left" Margin="654,374,0,0" VerticalAlignment="Top" Width="138" Height="30" Click="Button_Click_2"/>
+        <Label Content="Ваш билет до Москвы был приобритён" Margin="229,359,360,645" Grid.Column="1" FontSize="14"/>
+        <Label Content="Стоимость 16 432 Р" Margin="229,389,360,612" Grid.Column="1"/>
+
+    </Grid>
+</Window>

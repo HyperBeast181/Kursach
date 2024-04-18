@@ -1,0 +1,170 @@
+﻿<Window x:Class="WpfApp1.Xaml.buy1"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+  xmlns:local="clr-namespace:WpfApp1.Xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+  mc:Ignorable="d" 
+    Title="buy" Height="900" Width="1430" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Cursor="" >
+
+    <Grid>
+        
+        <ScrollViewer>
+            <StackPanel Background="White">
+
+                <!-- Header Section -->
+                <TextBlock Text="Бронирование билетов" FontSize="24" FontWeight="Bold" Margin="20"/>
+                <StackPanel Orientation="Horizontal" Margin="20">
+                    <TextBlock Text="Чита — Москва" FontSize="36" FontWeight="Bold" Width="297"/>
+                </StackPanel>
+                <Label Content="27 апреля, сб, 1 взрослый" Width="1331" Margin="0,0,30,0" FontSize="14" Foreground="#DD7D7D7D"/>
+
+                <Image Height="602" Width="1320" RenderTransformOrigin="0.59,0.359" Source="/Xaml/detali.png"/>
+
+
+                <!-- Journey Details Section -->
+                <!-- Use a DataTemplate for each flight leg with a ListView if this data is dynamic -->
+                <StackPanel Margin="20">
+                    <!-- Flight Leg 1 -->
+                    <StackPanel Orientation="Horizontal">
+                        <!-- ... other details ... -->
+                    </StackPanel>
+                    <!-- ... additional flight legs ... -->
+                </StackPanel>
+                <!-- Контактная информация -->
+                <StackPanel Margin="20">
+                    <TextBlock Text="Контактная информация" FontSize="18" FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Электронная почта" FontSize="16" VerticalAlignment="Center" Width="200"/>
+                        <TextBox Text="IvanIvanov@gmail.com" Margin="5" Width="300"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Телефон" FontSize="16" VerticalAlignment="Center" Width="200"/>
+                        <TextBox Text="Телефон" Margin="5" Width="300"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Ввод данных пассажиров -->
+                <!-- Раздел ввода данных пассажиров -->
+                <StackPanel Margin="20">
+                    <TextBlock Text="Введите данные пассажиров" FontSize="18" FontWeight="Bold"/>
+
+                    <!-- Гражданство -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Гражданство" FontSize="16" VerticalAlignment="Center" Width="189"/>
+                        <ComboBox x:Name="graz" materialDesign:HintAssist.Hint="Серия и номер" Style="{StaticResource MaterialDesignComboBox}"  SelectedIndex="0" Width="147" Margin="5">
+                            <ComboBoxItem Content="Россия" />
+                            <ComboBoxItem Content="Китай" />
+                            <ComboBoxItem Content="Казахстан" />
+                            <ComboBoxItem Content="Беларусь" />
+                            <ComboBoxItem Content="ОАЭ" />
+
+                            <!-- Другие варианты гражданства -->
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Тип документа и серия номер паспорта -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <StackPanel Width="191">
+                            <TextBlock Text="Тип документа" FontSize="16"/>
+                        </StackPanel>
+                        <ComboBox SelectedIndex="0" Width="184">
+                            <ComboBoxItem Content="Паспорт РФ" IsSelected="True"/>
+                            <ComboBoxItem Content="Загранпаспорт РФ"/>
+                            <ComboBoxItem Content="Свидетельство о рождении" />
+                            <!-- Другие варианты документов -->
+                        </ComboBox>
+                        <TextBox x:Name="txtDepartureCity" materialDesign:HintAssist.Hint="Серия и номер" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="200" Height="24" />
+
+                    </StackPanel>
+
+                    <!-- Фамилия -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Фамилия (на кириллице)" FontSize="16" VerticalAlignment="Center" Width="187"/>
+                        <TextBox x:Name="fam" materialDesign:HintAssist.Hint="Иванов" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="200" Height="25" />
+
+                    </StackPanel>
+
+                    <!-- Имя -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Имя (на кириллице)" FontSize="16" VerticalAlignment="Center" Width="187"/>
+                        <TextBox x:Name="name" materialDesign:HintAssist.Hint="Иван" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="200" Height="25" />
+
+                    </StackPanel>
+
+                    <!-- Отчество -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Отчество (на кириллице)" FontSize="16" VerticalAlignment="Center" Width="187"/>
+                        <TextBox x:Name="ot" materialDesign:HintAssist.Hint="Иванович
+                                 " Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="200" Height="24" />
+                        <CheckBox Content="Нет отчества" VerticalAlignment="Center" Margin="5"/>
+
+                    </StackPanel>
+
+                    <!-- Дата рождения и пол -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <!-- Дата рождения -->
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="Дата рождения" FontSize="16" Width="182" VerticalAlignment="Center"/>
+                            <TextBox x:Name="day" materialDesign:HintAssist.Hint="День" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="73" Height="25" />
+
+                            <ComboBox x:Name="mouth" materialDesign:HintAssist.Hint="Месяц" Style="{StaticResource MaterialDesignComboBox}"  SelectedIndex="0" Width="147" Margin="5" Text="">
+
+                                <ComboBoxItem Content="Январь"/>
+                                <ComboBoxItem Content="Февраль"/>
+                                <ComboBoxItem Content="Март"/>
+                                <ComboBoxItem Content="Апрель"/>
+                                <ComboBoxItem Content="Май"/>
+                                <ComboBoxItem Content="Июнь"/>
+                                <ComboBoxItem Content="Июль"/>
+                                <ComboBoxItem Content="Август"/>
+                                <ComboBoxItem Content="Сентябрь"/>
+                                <ComboBoxItem Content="Октябрь"/>
+                                <ComboBoxItem Content="Ноябрь"/>
+                                <ComboBoxItem Content="Декабрь"/>
+                            </ComboBox>
+                            <TextBox x:Name="year" materialDesign:HintAssist.Hint="Год" Style="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" Width="165" Height="25" />
+
+                        </StackPanel>
+
+                        <!-- Пол -->
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="Пол" FontSize="16" Width="50" VerticalAlignment="Center"/>
+                            <RadioButton Content="Мужской" IsChecked="True" Margin="5"/>
+                            <RadioButton Content="Женский" Margin="5"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+
+                <!-- Выбор тарифа -->
+
+                <!-- Дополнительный багаж -->
+                <StackPanel Margin="20">
+                    <TextBlock Text="Выберите дополнительный багаж" FontSize="18" FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <RadioButton Content="Без дополнительного багажа" IsChecked="True"/>
+                        <RadioButton Content="1 место багажа до 10 кг" Margin="5"/>
+                        <!-- ... -->
+                    </StackPanel>
+                </StackPanel>
+                
+
+                <!-- Итоговая стоимость и кнопка продолжения -->
+                <StackPanel Margin="20">
+                    <TextBlock Text="Итоговая стоимость" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="17 700 ₽" FontSize="18" FontWeight="Bold" Margin="5" Foreground="#FF673AB7"/>
+                    <Button
+
+                Content="Оплатить" Margin="239,5,5,5" Width="200"/>
+                    <Button Content="Назад" Width="200" Margin="-191,-42,0,0" Click="Button_Click"/>
+
+                </StackPanel>
+
+
+            </StackPanel>
+            
+        </ScrollViewer>
+    </Grid>
+</Window>
